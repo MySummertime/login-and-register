@@ -1,0 +1,75 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- meta -->
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{% static 'loginAndRegister/css/login.css' %}" rel="stylesheet" type="text/css">
+
+        <title>Welcome</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="col">
+                <form class="form-login" action="{% url 'loginAndRegister:login' %}" method="post">
+                    {% csrf_token %}
+                    <h3 class="text-center">Log In</h3>
+                    {% if err %}
+                        <div class="alert alert-warning alert-dismissable">{{err}}</div>
+                    {% endif %}
+                    <!--
+                    <div class="form-group">
+                        <label for="id_username">User:</label>
+                        <input type="text" class="form-control" id="id_username" name="username" placeholder="username" autofocus required>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_password">Password:</label>
+                        <input type="password" class="form-control" id="id_password" name="password" placeholder="password" required>
+                    </div>
+                    -->
+                    <div class="form-group">
+                        <!--label-->
+                        {{login_form.username.label_tag}}
+                        <!--input-->
+                        {{login_form.username}}
+                    </div>
+                    <div class="form-group">
+                        <!--label-->
+                        {{login_form.password.label_tag}}
+                        <!--input-->
+                        {{login_form.password}}
+                    </div>
+
+                    <div>
+                        <a class="text-success" href="{% url 'loginAndRegister:register' %}"><ins>Register</ins></a>
+                        <button class="btn btn-primary float-right" type="submit">Log In</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- conatiner -->
+
+        <!-- static files -->
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/2.11.6/umd/popper.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    </body>
+
+    <footer>
+        <hr/>
+        <p>
+            ©Copyright 2023 by
+            <a href="meilto:frances.jiang@sanmina.com" target="_blank">Frances Jiang</a>
+             | Sanmina·SCI Systems (KunShan) Co., Ltd. All rights reserved.
+        </p>
+    </footer>
+
+</html>

@@ -1,0 +1,39 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <!-- Required meta -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- meta -->
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+        <title>Welcome</title>
+    </head>
+
+    <body>
+        {% if request.session.is_login == True %}
+            <h1>Welcome back {{request.session.user_name}} !</h1>
+        {% else %}
+            <h1>¡Hola! Anonymous user !</h1>
+        {% endif %}
+        <div>
+            <p><a href="{% url 'loginAndRegister:logout' %}"><button>Log out</button></a></p>
+        </div>
+    </body>
+
+    <footer>
+        <hr/>
+        <p>
+            ©Copyright 2023 by
+            <a href="meilto:frances.jiang@sanmina.com" target="_blank">Frances Jiang</a>
+             | Sanmina·SCI Systems (KunShan) Co., Ltd. All rights reserved.
+        </p>
+    </footer>
+
+</html>

@@ -1,0 +1,74 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <!-- Required meta -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- meta -->
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{% static 'loginAndRegister/css/register.css' %}" rel="stylesheet">
+
+        <title>Register</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="col">
+                <form class="form-register" action="{% url 'loginAndRegister:register' %}" method="post">
+                    {% csrf_token %}
+                    <h3 class="text-center">Register</h3>
+                    {% if err %}
+                        <div class="alert alert-warning alert-dismissable">{{err}}</div>
+                    {% endif %}
+                    <div class="form-group">
+                        {{ register_form.username.label_tag }}
+                        {{ register_form.username}}
+                    </div>
+                    <div class="form-group">
+                        {{register_form.password1.label_tag}}
+                        {{register_form.password1}}
+                    </div>
+                    <div class="form-group">
+                        {{register_form.password2.label_tag}}
+                        {{register_form.password2}}
+                    </div>
+                    <div class="form-group">
+                        {{register_form.email.label_tag}}
+                        {{register_form.email}}
+                    </div>
+                    <div class="form-group">
+                        {{register_form.gender.label_tag}}
+                        {{register_form.gender}}
+                    </div>
+
+                    <div>
+                        <a href="{% url 'loginAndRegister:login' %}"><ins>Log In</ins></a>
+                        <button type="submit" class="btn btn-primary float-right">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- static files -->
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/2.11.6/umd/popper.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    </body>
+
+    <footer>
+        <hr/>
+        <p>
+            ©Copyright 2023 by
+            <a href="meilto:frances.jiang@sanmina.com" target="_blank">Frances Jiang</a>
+             | Sanmina·SCI Systems (KunShan) Co., Ltd. All rights reserved.
+        </p>
+    </footer>
+
+</html>
